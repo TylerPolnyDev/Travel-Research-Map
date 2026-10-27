@@ -22,13 +22,20 @@
     </aside>
 </main>
 <footer>This is a simple Amazon Location Service app. Pan and zoom. Click to see details about entities close to a point.</footer>
-<!-- JavaScript dependencies -->
 <script src="https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.js"></script>
-<script src="https://unpkg.com/@aws/amazon-location-client@1.x/dist/amazonLocationClient.js"></script>
-<script src="https://unpkg.com/@aws/amazon-location-utilities-auth-helper@1.x/dist/amazonLocationAuthHelper.js"></script>
+<script>
+    const apiKey = "v1.public.eyJqdGkiOiI0OGNkMjE1Ny1iMWFjLTQwOGItYmUzMi00NzgxYWU4YTQ2MDEifY1fyQyzNZl3FYcyzOsRts9ad7Pi-rlTnVxPQqCOmGORtydw9UgXhj48isYe_RRHZ4wpNwxjFC6LyMfC1UXswSr3nRclgwJd15YTyOAn22puQykhha41v_-FUzGXMqJsfgpqfw_MmK5A4WtBQ0TnG02qKxJf-IVqOlficYCTJtYuOPgESg4y-ncZHHjLIPt8ZotbG-zBVselesvLkI7gTlbqC4ti03yq4lD-SOF1cFJSgEMgiUObnJ-13c40aXhSCIi6-7Hcks7rYdKt9895Mf7FiTOhkXkXtpsxjJlKptLQ8RKhthIP7wYX4lATxcFxxRNMWE8bIPjDx7tFo3-m_2k.ZWU0ZWIzMTktMWRhNi00Mzg0LTllMzYtNzlmMDU3MjRmYTkx";
+    const mapName = "Travel_Research_Map";
+    const region = "us-east-1";
 
-<!-- JavaScript for the app -->
-<script src="main.js"></script>
+    const map = new maplibregl.Map({
+        container: "map",
+        style: `https://maps.geo.${region}.amazonaws.com/maps/v0/maps/${mapName}/style-descriptor?key=${apiKey}`,
+        center: [-103.771556, 44.967244],
+        zoom: 3,
+    });
+    map.addControl(new maplibregl.NavigationControl(), "top-left");
+</script>
 
 </body>
 </html>
